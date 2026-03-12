@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,146 +8,188 @@
     <link rel="stylesheet" href="style.css">
     <script src="java.js"></script>
 </head>
+
 <body>
     <div id="homePage">
-<!-- HEADER -->
-<header class="header">
-<div class="container nav">
-    <div class="logo">Pretzel<span>House</span></div>
-    <ul class="menu">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Products</a></li>
-    <li><a href="#">New</a></li>
-    <li><a href="#">Contact</a></li>
-    </ul>
-    <button class="btn-primary" onclick="showOrder()">Order Now</button>
-</div>
-</header>
-<!-- Banner -->
-<section class="banner">
-    <div class="container banner-content">
-        <div class="banner-text">
-            <h1>Fresh Pretzels Delivered To Your Door</h1>
-            <p>Crunchy outside, soft inside. Taste the best handmade pretzels every day.</p>
-        <button class="btn-white">Order Now</button>
-        </div>
-        <div class="Pretz-img">
-        <img src="./assets/img/1.png" alt="Pretzel">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="container nav">
+                <div class="logo">Pretzel<span>House</span></div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">New</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <button class="btn-primary" onclick="showOrder()">Order Now</button>
+            </div>
+        </header>
+        <!-- Banner -->
+        <section class="banner">
+            <div class="container banner-content">
+                <div class="banner-text">
+                    <h1>Fresh Pretzels Delivered To Your Door</h1>
+                    <p>Crunchy outside, soft inside. Taste the best handmade pretzels every day.</p>
+                    <button class="btn-white">Order Now</button>
+                </div>
+                <div class="Pretz-img">
+                    <img src="./assets/img/1.png" alt="Pretzel">
+                </div>
+            </div>
+        </section>
+        <!-- Discount -->
+        <section class="feature">
+            <div class="container feature-grid">
+                <div class="feature-item">
+                    <h3>Free Shipping</h3>
+                    <p>For orders over $50</p>
+                </div>
+                <div class="feature-item">
+                    <h3>24/7 Support</h3>
+                    <p>Always here for you</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Best Quality</h3>
+                    <p>Freshly baked daily</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Special Offers</h3>
+                    <p>Weekly discounts</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT -->
+        <section class="product">
+            <div class="container">
+                <h2 class="section-title">Our Pretzels</h2>
+                <div class="slider-wrapper">
+                    <button class="arrow left" onclick="scrollLeft()">❮</button>
+                    <div class="product-slider" id="pretzelSlider">
+
+                        <div class="card">
+                            <img src="assets/img/Classic.png" alt="">
+                            <h4>Classic Pretzel</h4>
+                            <p>$5.00</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/img/cheese.jpg" alt="">
+                            <h4>Cheese Pretzel</h4>
+                            <p>$6.50</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/img/Chocolate.jpg" alt="">
+                            <h4>Chocolate Pretzel</h4>
+                            <p>$7.00</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/img/mini.png" alt="">
+                            <h4>Mini Bites</h4>
+                            <p>$4.00</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/img/Sweet.jpg" alt="">
+                            <h4>Sweet Pretzel</h4>
+                            <p>$6.00</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/img/Salted Twist.jpg" alt="">
+                            <h4>Salted Twist</h4>
+                            <p>$5.50</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/img/Crunchy Ring.jpg" alt="">
+                            <h4>Crunchy Ring</h4>
+                            <p>$6.20</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="assets/img/Combo.jpg" alt="">
+                            <h4>Pretzel Combo</h4>
+                            <p>$12.00</p>
+                        </div>
+                        <button class="arrow right" onclick="scrollRight()">❯</button>
+                    </div>
+                </div>
+        </section>
+
+        <!-- SMALL BANNER -->
+<section class="sm-banner">
+    <div class="banner-box">
+        <h4>Crazy Deals</h4>
+        <h2>Buy 1 Get 1 Free</h2>
+        <span>The best pretzel is on sale</span>
+        <button class="btn-white">Learn More</button>
     </div>
+
+    <div class="banner-box banner-box2">
+        <h4>Spring Collection</h4>
+        <h2>Upcoming Pretzels</h2>
+        <span>Fresh handmade pretzels</span>
+        <button class="btn-white">Discover</button>
     </div>
 </section>
-    <!-- Discount -->
-    <section class="feature">
-        <div class="container feature-grid">
-            <div class="feature-item">
-                <h3>Free Shipping</h3>
-                <p>For orders over $50</p>
-            </div>
-            <div class="feature-item">
-                <h3>24/7 Support</h3>
-                <p>Always here for you</p>
-            </div>
-            <div class="feature-item">
-                <h3>Best Quality</h3>
-                <p>Freshly baked daily</p>
-            </div>
-            <div class="feature-item">
-                <h3>Special Offers</h3>
-                <p>Weekly discounts</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- PRODUCT -->
-    <section class="product">
-        <div class="container">
-            <h2 class="section-title">Our Pretzels</h2>
-            <div class="slider-wrapper">
-            <button class="arrow left" onclick="scrollLeft()">❮</button>
-            <div class="product-slider" id="pretzelSlider">
+        <!-- NEW PRODUCT -->
+        <section class="new-product">
+            <div class="container">
+                <h2 class="section-title">New Arrivals</h2>
+                <div class="product-grid">
 
-                <div class="card">
-                    <img src="assets/img/Classic.png" alt="">
-                    <h4>Classic Pretzel</h4>
-                    <p>$5.00</p>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/strawberry.jpg" alt="">
+                        <h4>Strawberry Pretzel</h4>
+                        <p>$8.00</p>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/cheese.jpg" alt="">
-                    <h4>Cheese Pretzel</h4>
-                    <p>$6.50</p>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/Salted Twist.jpg" alt="sa">
+                        <h4>Caramel Pretzel</h4>
+                        <p>$7.50</p>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/Chocolate.jpg" alt="">
-                    <h4>Chocolate Pretzel</h4>
-                    <p>$7.00</p>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/Almond.jpg" alt="">
+                        <h4>Almond Pretzel</h4>
+                        <p>$8.20 </p>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/mini.png" alt="">
-                    <h4>Mini Bites</h4>
-                    <p>$4.00</p>
-                </div>
+                    <div class="card">
+                        <img src="assets/img/gift box.jpg" alt="">
+                        <h4>Gift Box</h4>
+                        <p>$20.00</p>
+                    </div>
 
-                <div class="card">
-                    <img src="assets/img/Sweet.jpg" alt="">
-                    <h4>Sweet Pretzel</h4>
-                    <p>$6.00</p>
-                </div>
-
-                <div class="card">
-                    <img src="assets/img/Salted Twist.jpg" alt="">
-                    <h4>Salted Twist</h4>
-                    <p>$5.50</p>
-                </div>
-
-                <div class="card">
-                    <img src="assets/img/Crunchy Ring.jpg" alt="">
-                    <h4>Crunchy Ring</h4>
-                    <p>$6.20</p>
-                </div>
-
-                <div class="card">
-                    <img src="assets/img/Combo.jpg" alt="">
-                    <h4>Pretzel Combo</h4>
-                    <p>$12.00</p>
-                </div>
-                <button class="arrow right" onclick="scrollRight()">❯</button>
                 </div>
             </div>
-    </section>
-
-    <!-- NEW PRODUCT -->
-    <section class="new-product">
-        <div class="container">
-            <h2 class="section-title">New Arrivals</h2>
-            <div class="product-grid">
-
-                <div class="card">
-                    <img src="assets/img/strawberry.jpg" alt="">
-                    <h4>Strawberry Pretzel</h4>
-                    <p>$8.00</p>
+        </section>
+        <!-- Trang order -->
+        <section id="orderPage" style="display:none; padding:50px 0;">
+            <div class="container">
+                <div class="order-header">
+                    <h2>Order Your Pretzel</h2>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        🛒 <span id="cart-count">0</span>
+                    </div>
                 </div>
-
-                <div class="card">
-                    <img src="assets/img/Salted Twist.jpg" alt="sa">
-                    <h4>Caramel Pretzel</h4>
-                    <p>$7.50</p>
+                <div class="product-grid">
+                    <div class="card">
+                        <h4>Classic Pretzel</h4>
+                        <p>$5.00</p>
+                        <button onclick="addToCart('Classic Pretzel',5)">Add to Cart</button>
+                    </div>
+                    <div class="card">
+                        <h4>Cheese Pretzel</h4>
+                        <p>$6.50</p>
+                        <button onclick="addToCart('Cheese Pretzel',6.5)">Add to Cart</button>
+                    </div>
                 </div>
-
-                <div class="card">
-                    <img src="assets/img/Almond.jpg" alt="">
-                    <h4>Almond Pretzel</h4>
-                    <p>$8.20</p>
-                </div>
-
-                <div class="card">
-                    <img src="assets/img/gift box.jpg" alt="">
-                    <h4>Gift Box</h4>
-                    <p>$20.00</p>
-                </div>
-
             </div>
         </div>
     </section>
@@ -201,4 +244,5 @@
 </section>
 </body>
 </div>
+
 </html>
