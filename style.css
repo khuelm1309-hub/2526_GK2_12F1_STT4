@@ -353,3 +353,59 @@ body {
     background-color: #088178;
     color: #a71212;
 }
+
+/* SMALL BANNER */
+.sm-banner{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    padding:40px 80px;
+    background:#f5efe6;
+}
+
+.banner-box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    background-image:url("./assets/img/banner1.jpg");
+    min-width:580px;
+    height:50vh;
+    background-size:cover;
+    background-position:center;
+    padding:30px;
+}
+
+.banner-box2{
+    background-image:url("./assets/img/banner2.jpg");
+}
+
+.banner-box h4{
+    color:#fff;
+    font-size:18px;
+}
+
+.banner-box h2{
+    color:#fff;
+    font-size:28px;
+}
+
+.banner-box span{
+    color:#fff;
+    font-size:14px;
+    padding-bottom:15px;
+}
+
+.banner-box button{
+    background:#c1121f;
+    color:#fff;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.banner-box button:hover{
+    background:#fcbf49;
+    color:#000;
+}
