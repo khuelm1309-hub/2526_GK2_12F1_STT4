@@ -38,12 +38,10 @@ function placeOrder(e) {
         alert("Your cart is empty!");
         return;
     }
-
-    alert("Order placed successfully!");
-    cart = [];
-    total = 0;
-    updateCart();
-    document.getElementById("cart-count").innerText = 0;
+cart = [];
+total = 0;
+document.getElementById ("cart-count").innerText = 0;
+updateCart();
 }
 function scrollLeft() {
     const slider = document.getElementById("pretzelSlider");
