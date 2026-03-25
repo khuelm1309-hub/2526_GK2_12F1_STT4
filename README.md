@@ -1,4 +1,4 @@
-Dự án của nhóm thực hiện để tạo ra một trang web nhằm bán bánh Pretzel nhiều loại, nhiều kiểu
+Dự án của nhóm thực hiện để tạo ra một trang web cửa hàng bán bánh Pretzel nhiều loại, nhiều kiểu
 Thành viên: Thiên Phong, Khánh Ngọc, Khánh Ngân, Ngân Hà, Minh Khuê
 Phân công:
 Thiên Phong - tìm kiếm hình ảnh, nội dung, viết code
