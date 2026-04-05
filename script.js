@@ -57,11 +57,20 @@ function scrollRight() {
     const slider = document.getElementById("pretzelSlider");
     if (slider) slider.scrollBy({ left: 300, behavior: "smooth" });
 }
-const hamburger = document.querySelector(".hamburger");
-const menu = document.querySelector(".menu");
-if (hamburger && menu) {
-    hamburger.addEventListener("click", () => {
-        menu.classList.toggle("active");
-        hamburger.classList.toggle("active");
-    });
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+    if (hamburger && menu) {
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            menu.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+        document.addEventListener("click", (e) => {
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove("active");
+                hamburger.classList.remove("active");
+            }
+        });
+    }
+});
