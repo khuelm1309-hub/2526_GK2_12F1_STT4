@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Shop - Pretzel House🥨</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,32 +22,178 @@
         <li><a href="product.html">Sản phẩm</a></li>
         <li><a href="cart.html">Giỏ hàng</a></li>
         <li><a href="contact.html">Liên hệ</a></li>
+        <li><a href="blog.html">Blog</a></li>
         </ul>
     </div>
 </header>
-<section class="product-detail">
-    <div class="container" style="display:flex; gap:40px; flex-wrap:wrap;">
-
-        <!-- Ảnh -->
-        <div style="flex:1;">
-            <img src="assets/img/Classic.png" style="width:100%; border-radius:10px;">
+<section class="product">
+    <div class="container">
+        <h2 class="section-title">Pretzels</h2>
+        <div class="filter-box">
+            <button class="btn-primary" onclick="filterProduct('all')">Tất cả</button>
+            <button class="btn-primary" onclick="filterProduct('sweet')">Vị ngọt</button>
+            <button class="btn-primary" onclick="filterProduct('salt')">Vị mặn</button>
         </div>
-
-        <!-- Thông tin -->
-        <div style="flex:1;">
-            <h2>Classic Pretzel</h2>
-            <h3 style="color:#c1121f;">$5.00</h3>
-
-            <p style="margin:15px 0;">
-                Freshly baked classic pretzel with a crispy crust and soft inside.
-                Perfect for every snack time.
-            </p>
-
-            <button class="btn-primary">Add to Cart</button>
+        <div class="product-grid">
+            <div class="card">
+            <div class="product-item" data-category="sweet">
+            <a href="shop.html" class="product-link">
+                <img src="assets/img/Classic.png" alt="Vị truyền thống">
+                <h4>Vị truyền thống</h4>
+                <p>20.000đ</p>
+            </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="salt">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/cheese.jpg" alt="Vị phô mai">
+                <h4>Vị phô mai</h4>
+                <p>25.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="sweet">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/Chocolate.jpg" alt="Vị Chocolate">
+                <h4>Vị Chocolate</h4>
+                <p>25.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="sweet">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/mini.png" alt="Mini size">
+                <h4>Mini size</h4>
+                <p>10.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="sweet">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/Sweet.jpg" alt="Pretzel phủ đường">
+                <h4>Pretzel phủ đường</h4>
+                <p>20.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="salt">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/Salted Twist.jpg" alt="Xoắn muối">
+                <h4>Xoắn muối</h4>
+                <p>20.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="salt">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/Crunchy Ring.jpg" alt="Pretzel chiên giòn">
+                <h4>Pretzel chiên giòn</h4>
+                <p>20.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="sweet salted">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/Combo.jpg" alt="Combo">
+                <h4>Combo</h4>
+                <p>100.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="sweet">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/strawberry.jpg" alt="Vị dâu">
+                <h4>Vị dâu</h4>
+                <p>25.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="sweet">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/Salted Twist.jpg" alt="Vị Caramel">
+                <h4>Vị Caramel</h4>
+                <p>25.000đ</p>
+                </a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="product-item" data-category="salt">
+                <a href="shop.html" class="product-link">
+                <img src="assets/img/Almond.jpg" alt="Vị hạnh nhân">
+                <h4>Vị hạnh nhân</h4>
+                <p>25.000đ</p>
+                </a>
+            </div>
+            </div>
         </div>
-
     </div>
 </section>
+<section class="newsletter">
+    <div class="container newsletter-box">
+        <div class="newsletter-text">
+            <h2>Đăng ký để biết thêm thông tin</h2>
+            <p>Nhận ưu đãi và cập nhật mới nhất về pretzel</p>
+        </div>
 
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Đăng ký</button>
+        </form>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container footer-grid">
+    <div class="footer-col">
+    <div class="logo">Pretzel<span>House🥨</span></div>
+        <p>Bánh quy xoắn tươi ngon làm thủ công được giao tận nhà mỗi ngày.</p>
+    </div>
+    <div class="footer-col">
+        <h4>Ghé thăm</h4>
+        <p>123 Trần Hưng Đạo,<br>Quận 1, TP. Hồ Chí Minh</p>
+        <p>Mở cửa: 8am - 10pm hàng ngày</p>
+    </div>
+    <div class="footer-col">
+            <h4>Khám phá</h4>
+            <ul>
+                <li><a href="shop.html">Cửa hàng</a></li>
+                <li><a href="product.html">Sản phẩm mới</a></li>
+                <li><a href="about.html">Ưu đãi</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Tìm hiểu</h4>
+            <ul>
+                <li><a href="#">Về chúng tôi</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Liên hệ</h4>
+            <p>Email: hi@pretzelhouse.com</p>
+            <p>SĐT: 0123 456 789</p>
+            <div class="social-icons">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>© 2026 PretzelHouse🥨. Bảo lưu mọi quyền.</p>
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

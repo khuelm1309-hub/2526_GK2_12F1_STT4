@@ -74,3 +74,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+function filterProduct(category) {
+    const items = document.querySelectorAll('.product-item');
+    items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block'; 
+        } else {
+            item.style.display = 'none'; 
+        }
+    });
+}
+function filterProduct(category) {
+    const cards = document.querySelectorAll('.product-grid .card');
+    cards.forEach(card => {
+        const item = card.querySelector('.product-item');
+        if (!item) return; 
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'all' || itemCategory.includes(category)) {
+            card.style.display = 'block'; 
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+var MainImg = document.getElementById("MainImg");
+    var smallimg = document.getElementsByClassName("small-img");
+    smallimg[0].onclick = function(){ MainImg.src = smallimg[0].src; }
+    smallimg[1].onclick = function(){ MainImg.src = smallimg[1].src; }
+    smallimg[2].onclick = function(){ MainImg.src = smallimg[2].src; }
+    smallimg[3].onclick = function(){ MainImg.src = smallimg[3].src; }
