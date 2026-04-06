@@ -1174,3 +1174,19 @@ nav a:hover {
         flex-direction: column;
     }
 }
+img {
+  max-width: 100%;  /* Ảnh không bao giờ rộng hơn khung chứa nó */
+  height: auto;     /* Giữ đúng tỉ lệ ảnh, không bị méo */
+  display: block;   /* Loại bỏ khoảng hở nhỏ dưới chân ảnh */
+}
+.game-poster {
+  width: 600px;
+}
+
+/* Khi màn hình nhỏ hơn 768px (Điện thoại & Máy tính bảng) */
+@media (max-width: 768px) {
+  .game-poster {
+    width: 80%;      /* Chiếm 80% chiều rộng màn hình điện thoại */
+    margin: 0 auto;  /* Căn giữa cái hình */
+  }
+}
