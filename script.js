@@ -27,11 +27,9 @@ window.onload = function() {
             item.onclick = function() {
                 document.querySelector(".topping-item.active")?.classList.remove("active");
                 this.classList.add("active");
-                
                 const price = this.getAttribute("data-price");
                 const src = this.getAttribute("data-src");
                 const desc = this.getAttribute("data-desc");
-
                 if (mainImg && src) mainImg.src = src;
                 if (document.querySelector(".product-name")) 
                     document.querySelector(".product-name").innerText = "Pretzel " + this.innerText.trim();
@@ -47,19 +45,16 @@ window.onload = function() {
         addBtn.onclick = function() {
             const activeItem = document.querySelector(".topping-item.active");
             const qtyInput = document.querySelector(".action-bar input");
-            
             if (!activeItem) {
                 alert("Bạn chưa chọn vị bánh!");
                 return;
             }
-
             const product = {
                 name: "Pretzel " + activeItem.innerText.trim(),
                 price: parseInt(activeItem.getAttribute("data-price")) || 0,
                 image: activeItem.getAttribute("data-src") || "assets/img/Classic.png",
                 quantity: parseInt(qtyInput?.value) || 1
             };
-
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             let index = cart.findIndex(item => item.name === product.name);
             
@@ -68,12 +63,10 @@ window.onload = function() {
             } else {
                 cart.push(product);
             }
-
             localStorage.setItem("cart", JSON.stringify(cart));
             alert("Đã thêm " + product.name + " vào giỏ hàng!");
         };
     }
-
     if (document.getElementById("cart-content")) {
         renderCart();
     }
@@ -113,14 +106,12 @@ window.renderCart = function() {
     }
     if (totalEl) totalEl.innerText = totalAll.toLocaleString('vi-VN') + "đ";
 };
-
 window.deleteItem = (index) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
 };
-
 window.updateQuantity = (index, val) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let newQty = parseInt(val);
@@ -129,3 +120,15 @@ window.updateQuantity = (index, val) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
 };
+function filterProduct(category) {
+    const items = document.querySelectorAll(".product-item");
+    items.forEach(item => {
+        const itemCategory = item.getAttribute("data-category");
+
+        if (category === "all" || itemCategory.includes(category)) {
+            item.parentElement.style.display = "block";
+        } else {
+            item.parentElement.style.display = "none";
+        }
+    });
+}
