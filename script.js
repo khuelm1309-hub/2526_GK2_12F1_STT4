@@ -113,7 +113,6 @@ window.renderCart = function() {
     }
     if (totalEl) totalEl.innerText = totalAll.toLocaleString('vi-VN') + "đ";
 };
-
 window.deleteItem = (index) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1);
@@ -128,4 +127,72 @@ window.updateQuantity = (index, val) => {
     cart[index].quantity = newQty;
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
+};
+
+// Slider scroll functions
+window.scrollLeft = function() {
+    const slider = document.getElementById("pretzelSlider");
+    if (slider) slider.scrollBy({ left: -250, behavior: "smooth" });
+};
+
+window.scrollRight = function() {
+    const slider = document.getElementById("pretzelSlider");
+    if (slider) slider.scrollBy({ left: 250, behavior: "smooth" });
+};
+
+// Cart toggle function
+window.toggleCart = function() {
+    const cart = document.getElementById("cart");
+    if (cart) cart.classList.toggle("active");
+};
+
+// Add to cart function
+window.addToCart = function(name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ name: name, price: price, quantity: 1, image: "assets/img/Classic.png" });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Đã thêm " + name + " vào giỏ hàng!");
+};
+
+// Place order function
+window.placeOrder = function(e) {
+    e.preventDefault();
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+        alert("Giỏ hàng đang trống!");
+        return;
+    }
+    alert("Đặt hàng thành công! Cảm ơn bạn đã mua hàng.");
+    localStorage.removeItem("cart");
+    renderCart();
+};
+
+// Product filter function
+window.filterProduct = function(category) {
+    const products = document.querySelectorAll(".card");
+    
+    products.forEach(product => {
+        const productItem = product.querySelector(".product-item");
+        if (!productItem) return;
+        
+        const categories = productItem.getAttribute("data-category") || "";
+        
+        if (category === "all" || categories.includes(category)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+    
+    // Update active button state
+    const buttons = document.querySelectorAll(".filter-box .btn-primary");
+    buttons.forEach(btn => {
+        btn.style.opacity = "0.7";
+    });
+    event.target.style.opacity = "1";
 };

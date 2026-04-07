@@ -1,3 +1,11 @@
+:root {
+    --primary-red: #c1121f;
+    --accent-yellow: #fcbf49;
+    --cream-bg: #fff8f0;
+    --white: #ffffff;
+    --primary-color: #c1121f;
+    --accent-color: #fcbf49;
+}
 * {
     margin: 0;
     padding: 0;
@@ -518,27 +526,22 @@ grid-template-columns:1fr;
     color: #ffffff; 
     padding: 60px 5%;
     width: 100%;
-    display: block; 
+    display: block;
 }
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
-}
-.footer-col * {
-    color: #cccccc; 
-}
-.footer-col h4 {
-    color: #fcbf49; 
-    margin-bottom: 20px;
-}
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr; 
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
     gap: 40px;
     padding-bottom: 60px;
 }
-.footer-col p, 
+.footer-col * {
+    color: #cccccc;
+}
+.footer-col h4 {
+    color: #fcbf49;
+    margin-bottom: 20px;
+}
+.footer-col p,
 .footer-col ul li {
     font-size: 15px;
     line-height: 1.6;
@@ -786,9 +789,6 @@ header h1 {
     color: white;
     margin: 0;
 }
-.nav {
-    position: relative;
-}
 nav a {
     color: #ffe4c4;
     margin: 0 15px;
@@ -817,12 +817,6 @@ nav a:hover {
     .feature-grid {
         grid-template-columns: 1fr;
     }
-}
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%; 
 }
 .banner-content {
     display: flex;
@@ -1014,8 +1008,8 @@ nav a:hover {
 }
 @media (max-width: 992px) {
     .contact-container {
-        grid-template-columns: 1fr; /
-    } 
+        grid-template-columns: 1fr;
+    }
     .input-group {
         grid-template-columns: 1fr;
     }
@@ -1044,15 +1038,16 @@ nav a:hover {
     margin-bottom: 20px;
     text-align: center;
 }
-.product-item {
-    transition: all 0.4s ease; 
+.filter-box .btn-primary {
+    opacity: 0.7;
+    transition: opacity 0.3s;
 }
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    padding: 0 5%;
-    align-items: start;
+.filter-box .btn-primary:hover,
+.filter-box .btn-primary:first-child {
+    opacity: 1;
+}
+.product-item {
+    transition: all 0.4s ease;
 }
 .product-link {
     text-decoration: none; 
