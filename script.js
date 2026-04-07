@@ -1,105 +1,131 @@
-let cart = [];
-let total = 0;
-function showOrder() {
-    const home = document.getElementById("homePage");
-    const order = document.getElementById("orderPage");
-
-    if (home && order) {
-        home.style.display = "none";
-        order.style.display = "block";
-    }
-}
-function addToCart(name, price) {
-    cart.push({ name, price });
-    total += price;
-
-    const count = document.getElementById("cart-count");
-    if (count) count.innerText = cart.length;
-
-    updateCart();
-}
-function updateCart() {
-    const cartItems = document.getElementById("cart-items");
-    if (!cartItems) return;
-
-    cartItems.innerHTML = "";
-
-    cart.forEach(item => {
-        const li = document.createElement("li");
-        li.innerText = `${item.name} - $${item.price}`;
-        cartItems.appendChild(li);
-    });
-
-    const totalEl = document.getElementById("total");
-    if (totalEl) totalEl.innerText = total.toFixed(2);
-}
-function toggleCart() {
-    const cartBox = document.getElementById("cart");
-    if (cartBox) cartBox.classList.toggle("active");
-}
-function placeOrder(e) {
-    e.preventDefault();
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-    }
-    cart = [];
-    total = 0;
-    const count = document.getElementById("cart-count");
-    if (count) count.innerText = 0;
-    updateCart();
-}
-function scrollLeft() {
-    const slider = document.getElementById("pretzelSlider");
-    if (slider) slider.scrollBy({ left: -300, behavior: "smooth" });
-}
-function scrollRight() {
-    const slider = document.getElementById("pretzelSlider");
-    if (slider) slider.scrollBy({ left: 300, behavior: "smooth" });
-}
-document.addEventListener("DOMContentLoaded", () => {
+window.onload = function() {
+    console.log("PretzelHouse Script: Optimized Version Loaded!");
     const hamburger = document.querySelector(".hamburger");
     const menu = document.querySelector(".menu");
     if (hamburger && menu) {
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation(); 
-            menu.classList.toggle("active");
+        hamburger.onclick = function() {
             hamburger.classList.toggle("active");
-        });
-        document.addEventListener("click", (e) => {
-            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-                menu.classList.remove("active");
+            menu.classList.toggle("active");
+        };
+        document.querySelectorAll(".menu li a").forEach(link => {
+            link.onclick = () => {
                 hamburger.classList.remove("active");
-            }
+                menu.classList.remove("active");
+            };
         });
     }
-});
-function filterProduct(category) {
-    const items = document.querySelectorAll('.product-item');
-    items.forEach(item => {
-        if (category === 'all' || item.getAttribute('data-category') === category) {
-            item.style.display = 'block'; 
-        } else {
-            item.style.display = 'none'; 
-        }
-    });
-}
-function filterProduct(category) {
-    const cards = document.querySelectorAll('.product-grid .card');
-    cards.forEach(card => {
-        const item = card.querySelector('.product-item');
-        if (!item) return; 
-        const itemCategory = item.getAttribute('data-category');
-        if (category === 'all' || itemCategory.includes(category)) {
-            card.style.display = 'block'; 
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-var MainImg = document.getElementById("MainImg");
-    var smallimg = document.getElementsByClassName("small-img");
-    smallimg[0].onclick = function(){ MainImg.src = smallimg[0].src; }
-    smallimg[1].onclick = function(){ MainImg.src = smallimg[1].src; }
-    smallimg[2].onclick = function(){ MainImg.src = smallimg[2].src; }
-    smallimg[3].onclick = function(){ MainImg.src = smallimg[3].src; }
+    const mainImg = document.getElementById("MainImg");
+    const smallImgs = document.querySelectorAll(".small-img");
+    if (mainImg && smallImgs.length > 0) {
+        smallImgs.forEach(img => {
+            img.onclick = () => { mainImg.src = img.src; };
+        });
+    }
+    const toppingItems = document.querySelectorAll(".topping-item");
+    if (toppingItems.length > 0) {
+        toppingItems.forEach(item => {
+            item.onclick = function() {
+                document.querySelector(".topping-item.active")?.classList.remove("active");
+                this.classList.add("active");
+                
+                const price = this.getAttribute("data-price");
+                const src = this.getAttribute("data-src");
+                const desc = this.getAttribute("data-desc");
+
+                if (mainImg && src) mainImg.src = src;
+                if (document.querySelector(".product-name")) 
+                    document.querySelector(".product-name").innerText = "Pretzel " + this.innerText.trim();
+                if (document.querySelector(".product-price") && price) 
+                    document.querySelector(".product-price").innerText = parseInt(price).toLocaleString('vi-VN') + "đ";
+                if (document.getElementById("dynamic-desc") && desc) 
+                    document.getElementById("dynamic-desc").innerText = desc;
+            };
+        });
+    }
+    const addBtn = document.querySelector(".add-to-cart-btn");
+    if (addBtn) {
+        addBtn.onclick = function() {
+            const activeItem = document.querySelector(".topping-item.active");
+            const qtyInput = document.querySelector(".action-bar input");
+            
+            if (!activeItem) {
+                alert("Bạn chưa chọn vị bánh!");
+                return;
+            }
+
+            const product = {
+                name: "Pretzel " + activeItem.innerText.trim(),
+                price: parseInt(activeItem.getAttribute("data-price")) || 0,
+                image: activeItem.getAttribute("data-src") || "assets/img/Classic.png",
+                quantity: parseInt(qtyInput?.value) || 1
+            };
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let index = cart.findIndex(item => item.name === product.name);
+            
+            if (index > -1) {
+                cart[index].quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Đã thêm " + product.name + " vào giỏ hàng!");
+        };
+    }
+
+    if (document.getElementById("cart-content")) {
+        renderCart();
+    }
+};
+window.renderCart = function() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const tableBody = document.getElementById("cart-content");
+    const totalEl = document.getElementById("total-final");
+    
+    if (!tableBody) return;
+    tableBody.innerHTML = "";
+    let totalAll = 0;
+
+    if (cart.length === 0) {
+        tableBody.innerHTML = "<tr><td colspan='6' style='text-align:center; padding:30px;'>Giỏ hàng đang trống!</td></tr>";
+    } else {
+        cart.forEach((item, index) => {
+            const price = item.price || 0;
+            const subtotal = price * item.quantity;
+            totalAll += subtotal;
+            const productImg = item.image ? item.image : "assets/img/Classic.png";
+
+            tableBody.innerHTML += `
+                <tr>
+                    <td><button onclick="deleteItem(${index})" style="color:red; border:none; background:none; cursor:pointer;"><i class="far fa-times-circle"></i> Xóa</button></td>
+                    <td>
+                        <div class="cart-img-container">
+                            <img src="${productImg}" width="50" onerror="this.src='assets/img/Classic.png'">
+                        </div>
+                    </td>
+                    <td>${item.name}</td>
+                    <td>${price.toLocaleString('vi-VN')}đ</td>
+                    <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)" style="width:50px"></td>
+                    <td style="font-weight:bold; color:#c1121f;">${subtotal.toLocaleString('vi-VN')}đ</td>
+                </tr>`;
+        });
+    }
+    if (totalEl) totalEl.innerText = totalAll.toLocaleString('vi-VN') + "đ";
+};
+
+window.deleteItem = (index) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+};
+
+window.updateQuantity = (index, val) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let newQty = parseInt(val);
+    if (newQty < 1 || isNaN(newQty)) newQty = 1;
+    cart[index].quantity = newQty;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+};

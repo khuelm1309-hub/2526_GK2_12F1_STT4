@@ -9,56 +9,76 @@
 <header class="header">
     <div class="container nav">
         <div class="logo">Pretzel<span>House🥨</span></div>
-
-        <button class="hamburger">
+        <button class="hamburger" id="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </button>
-
-        <ul class="menu">
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="about.html">Về chúng tôi</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="product.html">Sản phẩm</a></li>
-        <li><a href="cart.html">Giỏ hàng</a></li>
-        <li><a href="contact.html">Liên hệ</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <ul class="menu" id="menu">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="about.html">Về chúng tôi</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="product.html">Sản phẩm</a></li>
+            <li><a href="cart.html">Giỏ hàng</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="blog.html">Blog</a></li>
         </ul>
     </div>
 </header>
-<div class="container">
-    <h2>Tin tức & Bài viết</h2>
-
-    <div class="blog-post">
-        <h2>Pretzel là gì?</h2>
-        <p>Pretzel là một loại bánh nướng truyền thống có nguồn gốc từ châu Âu, nổi bật với hình xoắn đặc trưng.</p>
+<div class="container blog-container">
+    <div class="blog-header">
+        <h2>Tin tức & Bài viết</h2>
+        <p>Khám phá thế giới bánh xoắn đầy màu sắc tại PretzelHouse🥨</p>
     </div>
+    <div class="blog-grid">
+        <div class="blog-card">
+            <div class="blog-img">
+               <img src="assets/img/Classic.png" alt="Pretzel là gì">
+            </div>
+            <div class="blog-content">
+                <span class="blog-category">Kiến thức</span>
+                <h3>Pretzel là gì?</h3>
+                <p>Pretzel là một loại bánh nướng truyền thống có nguồn gốc từ châu Âu, nổi bật với hình xoắn đặc trưng mô phỏng đôi tay cầu nguyện.</p>
+                <a href="#" class="read-more">Đọc thêm →</a>
+            </div>
+        </div>
 
-    <div class="blog-post">
-        <h2>Cách làm pretzel ngon tại nhà</h2>
-        <p>Để làm pretzel ngon, bạn cần bột mì, men, muối và một chút kiên nhẫn. Bí quyết nằm ở công đoạn luộc bánh trước khi nướng.</p>
-    </div>
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="assets/img/Baking.jpg" alt="Cách làm pretzel">
+            </div>
+            <div class="blog-content">
+                <span class="blog-category">Công thức</span>
+                <h3>Cách làm pretzel ngon tại nhà</h3>
+                <p>Bí quyết để có chiếc bánh mềm trong giòn ngoài nằm ở công đoạn luộc bánh qua nước baking soda trước khi cho vào lò nướng.</p>
+                <a href="#" class="read-more">Đọc thêm →</a>
+            </div>
+        </div>
 
-    <div class="blog-post">
-        <h2>Top 3 vị pretzel được yêu thích</h2>
-        <p>Pretzel phô mai, pretzel socola và pretzel truyền thống là những lựa chọn được khách hàng yêu thích nhất.</p>
-    </div>
-</div>
-    <div class="blog-post">
-        <h2>Thưởng thức pretzel cùng đồ uống gì?</h2>
-        <p>Một chiếc bánh pretzel nóng hổi sẽ trở nên hoàn hảo hơn khi kết hợp cùng một ly bia thủ công mát lạnh, trà đen hoặc một tách cà phê thơm lừng vào buổi sáng.</p>
-    </div>
-    <div class="blog-post">
-        <h2>Câu chuyện đằng sau hình dáng của Pretzel</h2>
-        <p>Tương truyền rằng, hình dáng vòng cung chéo nhau của bánh Pretzel được một tu sĩ tạo ra vào thế kỷ thứ 7 để mô phỏng lại hình ảnh hai cánh tay khoanh trước ngực khi cầu nguyện.</p>
-    </div>
-    <div class="blog-post">
-        <h2>Mẹo bảo quản Pretzel luôn mềm thơm</h2>
-        <p>Nếu không ăn hết, hãy bọc kín bánh bằng màng bọc thực phẩm. Khi ăn, bạn chỉ cần xịt một chút nước lên bề mặt và làm nóng trong lò vi sóng khoảng 15 giây là bánh sẽ ngon như mới ra lò.</p>
-    </div>
-</div>
-<section class="newsletter">
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="assets/img/Combo.jpg" alt="Top 3 vị">
+            </div>
+            <div class="blog-content">
+                <span class="blog-category">Xu hướng</span>
+                <h3>Top 3 vị pretzel được yêu thích</h3>
+                <p>Pretzel vị phô mai, truyền thống và Chocolate luôn là những lựa chọn hàng đầu của thực khách.</p>
+                <a href="#" class="read-more">Đọc thêm →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <div class="blog-img">
+                <img src="assets/img/Drinks.jpg" alt="Đồ uống kèm">
+            </div>
+            <div class="blog-content">
+                <span class="blog-category">Ẩm thực</span>
+                <h3>Thưởng thức cùng đồ uống gì?</h3>
+                <p>Còn gì ngon hơn là vừa uống 1 ly trà sữa vừa nhấm nháp bánh Pretzel😋</p>
+                <a href="#" class="read-more">Đọc thêm →</a>
+            </div>
+        </div>
+    </div> </div> <section class="newsletter">
     <div class="container newsletter-box">
         <div class="newsletter-text">
             <h2>Đăng ký để biết thêm thông tin</h2>
@@ -70,31 +90,31 @@
         </form>
     </div>
 </section>
+
 <footer class="footer">
     <div class="container footer-grid">
-    <div class="footer-col">
-    <div class="logo">Pretzel<span>House🥨</span></div>
-        <p>Bánh quy xoắn tươi ngon làm thủ công được giao tận nhà mỗi ngày.</p>
-    </div>
-    <div class="footer-col">
-        <h4>Ghé thăm</h4>
-        <p>123 Trần Hưng Đạo,<br>Quận 1, TP. Hồ Chí Minh</p>
-        <p>Mở cửa: 8am - 10pm hàng ngày</p>
-    </div>
-    <div class="footer-col">
+        <div class="footer-col">
+            <div class="logo">Pretzel<span>House🥨</span></div>
+            <p>Bánh quy xoắn tươi ngon làm thủ công được giao tận nhà mỗi ngày.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Ghé thăm</h4>
+            <p>123 Trần Hưng Đạo,<br>Quận 1, TP. Hồ Chí Minh</p>
+            <p>Mở cửa: 8am - 10pm hàng ngày</p>
+        </div>
+        <div class="footer-col">
             <h4>Khám phá</h4>
             <ul>
-                <li><a href="shop.html">Cửa hàng</a></li>
+                <li><a href="index.html">Cửa hàng</a></li>
                 <li><a href="product.html">Sản phẩm mới</a></li>
-                <li><a href="about.html">Ưu đãi</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4>Tìm hiểu</h4>
             <ul>
-                <li><a href="#">Về chúng tôi</a></li>
-                <li><a href="#">Câu hỏi thường gặp</a></li>
-                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="about.html">Về chúng tôi</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -114,6 +134,7 @@
         </div>
     </div>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>
